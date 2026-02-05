@@ -7,7 +7,7 @@ export type SummarizationConfig =
       instruction?: string;
     };
 
-export interface CreateSearchToolOptions {
+export interface SearchToolOptions {
   apiKey?: string;
   vertical?: string;
   summarization?: SummarizationConfig;

@@ -1,7 +1,7 @@
 {
   "name": "@kirha/ai-sdk",
   "version": "0.1.0",
-  "description": "AI SDK v5 tools for Kirha Search API",
+  "description": "AI SDK tools for Kirha Search API",
   "type": "module",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
@@ -29,7 +29,8 @@
     "ai",
     "ai-sdk",
     "vercel",
-    "tools"
+    "tools",
+    "data"
   ],
   "author": "Kirha",
   "license": "MIT",
@@ -38,16 +39,15 @@
     "url": "https://github.com/kirha-ai/kirha-ai-sdk"
   },
   "dependencies": {
-    "kirha": "^0.1.0",
-    "zod": "^3.24.0"
+    "kirha": "^0.1.0"
   },
   "peerDependencies": {
-    "ai": "^5.0.0"
+    "ai": "^5.0.0 || ^6.0.0"
   },
   "devDependencies": {
+    "@ai-sdk/google": "^3.0.21",
     "@biomejs/biome": "2.3.10",
     "@types/bun": "latest",
-    "ai": "^5.0.0",
     "typescript": "^5.0.0"
   }
 }

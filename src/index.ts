@@ -1,7 +1,7 @@
-export { searchTool, createSearchTool } from "./tools/search";
+export { searchTool } from "./tools/search";
 
 export type {
-  CreateSearchToolOptions,
+  SearchToolOptions,
   SearchToolInput,
   SummarizationConfig,
   SummarizationModel,

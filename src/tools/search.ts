@@ -1,59 +1,41 @@
-import { tool } from "ai";
-import { z } from "zod";
+import { jsonSchema, tool } from "ai";
 import { getDefaultClient, createClient } from "../client";
-import type { CreateSearchToolOptions } from "../types";
-import type { SearchResult } from "kirha";
+import type { SearchToolOptions } from "../types";
 
 const DEFAULT_DESCRIPTION =
   "Search across Kirha's real-time data verticals. Use this tool to search for current information across specialized domains. " +
   "Kirha intelligently composes and orchestrates multiple data providers to deliver comprehensive, up-to-date results.";
 
-const searchInputSchema = z.object({
-  query: z
-    .string()
-    .min(1)
-    .describe("The search query describing what information you need"),
-});
-
-type SearchInput = z.infer<typeof searchInputSchema>;
-
-export const searchTool = tool<SearchInput, SearchResult>({
-  description: DEFAULT_DESCRIPTION,
-  inputSchema: searchInputSchema,
-  execute: async ({ query }) => {
-    const client = getDefaultClient();
-
-    const result = await client.search(query, {
-      includeRawData: true,
-    });
-
-    return result;
+const searchInputSchema = jsonSchema<{ query: string }>({
+  type: "object",
+  properties: {
+    query: {
+      type: "string",
+      description: "The search query describing what information you need",
+    },
   },
+  required: ["query"],
 });
 
-export function createSearchTool(options: CreateSearchToolOptions = {}) {
-  const apiKey = options.apiKey ?? process.env.KIRHA_API_KEY;
-
-  if (!apiKey) {
-    throw new Error(
-      "API key is required. Provide it via options.apiKey or KIRHA_API_KEY environment variable.",
-    );
-  }
-
-  const client = createClient({
-    apiKey,
-    vertical: options.vertical,
-    summarization: options.summarization,
-  });
-
+export function searchTool(options: SearchToolOptions = {}) {
+  const description = options.description ?? DEFAULT_DESCRIPTION;
   const includeRawData = options.includeRawData ?? true;
   const includePlanning = options.includePlanning ?? false;
-  const description = options.description ?? DEFAULT_DESCRIPTION;
 
-  return tool<SearchInput, SearchResult>({
+  return tool({
     description,
     inputSchema: searchInputSchema,
-    execute: async ({ query }) => {
+    execute: async ({ query }: { query: string }) => {
+      const apiKey = options.apiKey ?? process.env.KIRHA_API_KEY;
+
+      const client = apiKey
+        ? createClient({
+            apiKey,
+            vertical: options.vertical,
+            summarization: options.summarization,
+          })
+        : getDefaultClient();
+
       const result = await client.search(query, {
         vertical: options.vertical,
         summarization: options.summarization,

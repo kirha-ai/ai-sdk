@@ -5,7 +5,7 @@
     "": {
       "name": "@kirha/ai-sdk",
       "dependencies": {
-        "kirha": "^0.1.0",
+        "kirha": "^0.1.1",
       },
       "devDependencies": {
         "@ai-sdk/google": "^3.0.21",
@@ -67,7 +67,7 @@
 
     "json5": ["json5@2.2.3", "", { "bin": { "json5": "lib/cli.js" } }, "sha512-XmOWe7eyHYH14cLdVPoyg+GOH3rYX++KpzrylJwSW98t3Nk+U8XOl8FWKOgwtzdb8lXGf6zYwDUzeHMWfxasyg=="],
 
-    "kirha": ["kirha@0.1.0", "", { "dependencies": { "@kirha/planner": "^0.1.0", "zod": "^3.24.0" }, "peerDependencies": { "typescript": "^5" } }, "sha512-e6391TVGzVYWcA4hcp21isTC9vWv/StFHHwuHOsr6T5lT7Zz306mslYhfXoSDeV15jgLENB5pPRalu1I712rQA=="],
+    "kirha": ["kirha@0.1.1", "", { "dependencies": { "@kirha/planner": "^0.1.0", "zod": "^3.24.0" }, "peerDependencies": { "typescript": "^5" } }, "sha512-uyoVo8qgKtcLG0XHaQaWm3PU5svHhchIhUN+RU29YobY/KxUTAEasc0IstYS9bqUqu/YwfVaXffvdP8MDhx73g=="],
 
     "openai": ["openai@6.17.0", "", { "peerDependencies": { "ws": "^8.18.0", "zod": "^3.25 || ^4.0" }, "optionalPeers": ["ws", "zod"], "bin": { "openai": "bin/cli" } }, "sha512-NHRpPEUPzAvFOAFs9+9pC6+HCw/iWsYsKCMPXH5Kw7BpMxqd8g/A07/1o7Gx2TWtCnzevVRyKMRFqyiHyAlqcA=="],
 

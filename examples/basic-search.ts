@@ -8,8 +8,8 @@ async function main() {
   const result = await generateText({
     model: google("gemini-2.0-flash"),
     tools: { search: searchTool({ vertical: "crypto" }) },
-    stopWhen: stepCountIs(2),
-    prompt: "What is the current bitcoin price?",
+    stopWhen: stepCountIs(3),
+    prompt: "Current bitcoin price",
   });
 
   console.log("Response:", result.text);

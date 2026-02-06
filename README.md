@@ -34,8 +34,9 @@ import { searchTool } from "@kirha/ai-sdk";
 
 // Set KIRHA_API_KEY environment variable
 const result = await generateText({
-  model: google("gemini-3-flash"),
+  model: google("gemini-2.0-flash"),
   tools: { search: searchTool() },
+  stopWhen: stepCountIs(3),
   prompt: "What are the top crypto trends today?",
 });
 

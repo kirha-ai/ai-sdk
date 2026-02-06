@@ -1,6 +1,6 @@
 {
   "name": "@kirha/ai-sdk",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "AI SDK tools for Kirha Search API",
   "type": "module",
   "main": "./dist/index.js",
@@ -39,7 +39,7 @@
     "url": "https://github.com/kirha-ai/ai-sdk"
   },
   "dependencies": {
-    "kirha": "^0.1.0"
+    "kirha": "^0.1.1"
   },
   "peerDependencies": {
     "ai": "^5.0.0 || ^6.0.0"

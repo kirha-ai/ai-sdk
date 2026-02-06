@@ -54,7 +54,7 @@ const tool = searchTool({
   apiKey: "...",                    // defaults to KIRHA_API_KEY env var
   vertical: "crypto",               // focus search on a specific vertical
   summarization: "kirha-flash",     // enable summarization
-  includeRawData: true,             // include raw data in results
+  includeData: true,             // include raw data in results
   description: "Search for cryptocurrency data",
 });
 ```
@@ -66,7 +66,7 @@ const tool = searchTool({
 | `apiKey` | `string` | `KIRHA_API_KEY` env var | API key |
 | `vertical` | `string` | - | Data vertical to search |
 | `summarization` | `"kirha" \| "kirha-flash" \| { model, instruction? }` | - | Summarization config |
-| `includeRawData` | `boolean` | `true` | Include raw data |
+| `includeData` | `boolean` | `true` | Include raw data |
 | `includePlanning` | `boolean` | `false` | Include planning info |
 | `description` | `string` | Default | Custom tool description |
 

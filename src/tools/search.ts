@@ -19,7 +19,7 @@ const searchInputSchema = jsonSchema<{ query: string }>({
 
 export function searchTool(options: SearchToolOptions = {}) {
   const description = options.description ?? DEFAULT_DESCRIPTION;
-  const includeRawData = options.includeRawData ?? true;
+  const includeData = options.includeData ?? true;
   const includePlanning = options.includePlanning ?? false;
 
   return tool({
@@ -39,7 +39,7 @@ export function searchTool(options: SearchToolOptions = {}) {
       const result = await client.search(query, {
         vertical: options.vertical,
         summarization: options.summarization,
-        includeRawData,
+        includeData,
         includePlanning,
       });
 

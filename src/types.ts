@@ -11,7 +11,7 @@ export interface SearchToolOptions {
   apiKey?: string;
   vertical?: string;
   summarization?: SummarizationConfig;
-  includeRawData?: boolean;
+  includeData?: boolean;
   includePlanning?: boolean;
   description?: string;
 }
